@@ -1,21 +1,22 @@
 /* Global variables */
 /* ======================================================================== */
-$main_font_family: "Open Sans";
-$main_color: #000;
+$main_font_family: 'Titillium Web', sans-serif;
+$main_color: #3c4761;
 $main_line_height: 1.2;
 $main_font_size: 16px;
 
-$container_width: 1200px;
+$container_width: 1070px;
 
 $footer_height: 60px;
 
 // Color collection for elements
-$color_primary: #7b8287;
+$color_primary: #30bae7;
 $color_success: #36a566;
 $color_info: #03a9f4;
 $color_warning: #fca33e;
-$color_danger: #ff1a1a;
+$color_danger: #17c2a4;
 $color_withe: #ffffff;
+$color_dark: #000;
 
 $green: $color_success;
 $yellow: $color_warning;
@@ -68,8 +69,8 @@ $input_error_border_color: red;
 $input_error_placeholder_color: red;
 
 // Button variables
-$btn_default_bg_color: #ddd;
-$btn_default_text_color: $main_color;
+$btn_default_bg_color: #eb7d4b;
+$btn_default_text_color: $color_withe;
 $btn_contrast_text_color: $color_withe;
 $btn_default_bg_color_hover: #ccc;
 

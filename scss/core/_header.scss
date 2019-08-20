@@ -1,9 +1,13 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	background-color: #ccc;
-	padding: 10px 0;
-	@extend %clear_a;
+	// background-color: #ccc;
+	padding: 50px 0;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	transition: 0.3s;
+	// @extend %clear_a;
 
 	&__content {
 		max-width: $container_width;
@@ -12,6 +16,7 @@
 		margin: auto;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 	}
 }
 
