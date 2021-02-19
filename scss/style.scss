@@ -1,14 +1,5 @@
-/*!
- *
- * Evgeniy Ivanov - 2018
- * busforward@gmail.com
- * Skype: ivanov_ea
- *
- */
-@import 'mixins/mixin'; // Fonts
-// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900); // Mixin for include fonts
+@import 'mixins/mixin';
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700&display=swap');
-// @include font-face("ArialMT", 'fonts/CenturyGothic', normal, normal);
 // Import files
 @import 'variables/variables';
 @import 'core/reset';
@@ -18,7 +9,6 @@
 @import 'core/footer';
 @import 'core/form';
 @import 'core/grid';
-// @import 'core/soc';
 @import 'core/breadcrumb';
 @import 'core/pagination';
 @import 'core/buttons';
@@ -60,14 +50,13 @@
     }
 
     &_contrast {
-        color: #fff;
+        color: $color_withe;
     }
 }
 
 .home {
     background-color: #87509c;
     display: flex;
-    // height: 50vh;
     padding-top: 150px;
     min-height: 596px;
 
@@ -87,14 +76,7 @@
         line-height: 1.16;
         margin-bottom: 50px;
     }
-
-    &__action {}
-
 }
-
-.container_center {}
-
-.btn {}
 
 .service {
     background-color: #17c2a4;
@@ -438,16 +420,8 @@
 
     &__control {
         flex-grow: 1;
-        // margin-bottom: 27px;
     }
-
-    &__action {}
-
 }
-
-.btn_primary {}
-
-.footer {}
 
 .soc {
     display: flex;
@@ -456,7 +430,7 @@
     &__link {
         padding: 5px;
         display: block;
-        color: #ffffff;
+        color: $color_withe;
         font-size: 24px;
         font-weight: 700;
         line-height: 1.25;

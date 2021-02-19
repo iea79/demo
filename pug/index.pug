@@ -1,156 +1,151 @@
+include data.pug
 <!DOCTYPE html>
 html(lang="en")
-head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
 
-    link(rel="stylesheet", type="text/css", href="css/style.css")
-body
-    header.header
-        .header__content
-            .header__left
-                a.logo(href="/")
-                    img(src="img/logo.svg", alt="alt")
-            nav.header__right
-                ul.navbar
-                    each value in ['home', 'about', 'work', 'blog', 'contact']
-                        li.navbar__item
-                            a.navbar__link(href="#"+value+"")= value
+        link(rel="stylesheet", type="text/css", href="css/style.css")
+    body
+        header.header
+            .header__content
+                .header__left
+                    a.logo(href="/")
+                        img(src="img/logo.svg", alt="alt")
+                nav.header__right
+                    ul.navbar
+                        each value in navbar
+                            li.navbar__item
+                                a.navbar__link(href="#"+value+"")= value
 
-    main.main_content
-        // begin home
-        section#home.home.section.section_contrast
+        main.main_content
+            // begin home
+            section#home.home.section.section_contrast
+                .container_center
+                    h1.home__title Hi there! We are the new kids on the block and we build awesome websites and mobile apps.
+                    .home__action
+                        button.btn(type="submit") WORK WITH US!
+
+            // end home
+
+            // begin service
+            section#service.service.section.section_contrast
+                .container_center
+                    h2.section__title SERVICES WE PROVIDE
+                    .section__subtitle We are working with both individuals and businesses from all over the globe to create awesome websites and applications.
+
+                    .serviceList
+                        each item, index in service
+                            .serviceList__item
+                                .serviceList__img
+                                    img(src="img/service"+(index+1)+".svg", alt="alt")
+                                .serviceList__name= item.name
+                                .serviceList__text= item.text
+
+            // end service
+
+            // begin team
+            section#team.team.section
+                .container_center
+                    h2.section__title MEET OUR BEAUTIFUL TEAM
+                    .section__subtitle We are a small team of designers and developers, who help brands with big ideas.
+                    .teamList
+                        each item in team
+                            .teamList__item
+                                .teamList__img(style="background-image: url('img/"+item.photo+"')")
+                                .teamList__name= item.name
+                                .teamList__prof= item.prof
+                                .teamList__text= item.text
+                                .teamList__soc
+                                    each soc in item.soc
+                                        if soc == 'fb'
+                                            a.icon-fb(href="#")
+                                        if soc == 'tw'
+                                            a.icon-twitter(href="#")
+                                        if soc == 'in'
+                                            a.icon-in(href="#")
+                                        if soc == 'mail'
+                                            a.icon-mail(href="#")
+
+            // end team
+
+            // begin skills
+            section#skills.skills.section
+                .container_center
+                    h2.section__title WE GOT SKILLS!
+                    .section__subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    .skillsList
+                        each skill in skills
+                            .skillsList__item
+                                .skillsList__donut
+                                    .skillsList__count= skill.percent
+                                .skillsList__name= skill.name
+
+            // end skills
+
+            // begin work
+            section#work.work.section
+                .container_center
+                    h2.section__title OUR PORTFOLIO
+                    .section__subtitle Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam
+
+                    .workList
+                        each item, index in works
+                            .workList__item
+                                .workList__img
+                                    img(src="img/work"+index+".png", alt="alt")
+                                .workList__name= item
+
+                    .workList__more
+                        button.btn.btn_danger(type="button") LOAD MORE PROJECTS
+
+            // end work
+
+            // begin about
+            section#about.about.section.section_contrast
+                .container_center
+                    h2.section__title WHAT PEOPLE SAY ABOUT US
+                    .section__subtitle Our clients love us!
+
+                    .aboutList
+                        each item in about
+                            .aboutList__item
+                                .aboutList__img(style="background-image: url('img/"+item.img+"')")
+                                .aboutList__descr
+                                    .aboutList__text= item.text
+                                    .aboutList__name= item.name
+                                    .aboutList__prof= item.prof
+
+            // end about
+
+            // begin contact
+            section#contact.contact.section.section_contrast
+                .container_center
+                    h2.section__title GET IN TOUCH
+                    .section__subtitle 1600 Pennsylvania Ave NW, Washington, DC 20500, United States of America. Tel: (202) 456-1111
+                    form.form(action="#" method="post")
+                        .form__row.form__row_double
+                            .form__control
+                                input(type="text", placeholder="Your Name *")
+                            .form__control
+                                input(type="text", placeholder="Your Email *")
+                        .form__row
+                            .form__control
+                                textarea(placeholder="Your Message *")
+                        .form__action
+                            button.btn.btn_primary(type="submit") SEND MESSAGE
+
+            // end contact
+
+        footer.footer
             .container_center
-                h1.home__title Hi there! We are the new kids on the block and we build awesome websites and mobile apps.
-                .home__action
-                    button.btn(type="submit") WORK WITH US!
-
-        // end home
-
-        // begin service
-        section#service.service.section.section_contrast
-            .container_center
-                h2.section__title SERVICES WE PROVIDE
-                .section__subtitle We are working with both individuals and businesses from all over the globe to create awesome websites and applications.
-
-                .serviceList
-                    -var service = [{name: 'Branding', text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.'},{name: 'Design', text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem  '},{name: 'Development', text: 'At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium.'},{name: 'ROCKET SCIENCE', text: 'Et harum quidem rerum est et expedita distinctio. Nam libero tempore.'}];
-
-                    each item, index in service
-                        .serviceList__item
-                            .serviceList__img
-                                img(src="img/service"+(index+1)+".svg", alt="alt")
-                            .serviceList__name= item.name
-                            .serviceList__text= item.text
-
-        // end service
-
-        // begin team
-        section#team.team.section
-            .container_center
-                h2.section__title MEET OUR BEAUTIFUL TEAM
-                .section__subtitle We are a small team of designers and developers, who help brands with big ideas.
-                .teamList
-                    -var team = [{name: 'ANNE HATHAWAY', prof: 'CEO / Marketing Guru', photo: 'Anne_Hathaway_in_2016.jpg', text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.', soc: ['fb', 'tw', 'in', 'mail']}, {name: 'Kate Upton', prof: 'Creative Director', photo: 'F7XIdhSg_400x400.jpg', text: 'Duis aute irure dolor in in voluptate velit esse cillum dolore fugiat nulla pariatur. Excepteur sint occaecat non diam proident.', soc: ['tw', 'in', 'mail']}, {name: 'Olivia Wilde', prof: 'Lead Designer', photo: 'olivia-wilde-main.jpg', text: 'Nemo enim ipsam voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem nesciunt.', soc: ['fb', 'tw', 'in', 'mail']}, {name: 'Ashley Greene', prof: 'SEO / Developer', photo: 'Ashley_Greene_Comic-Con_2011.jpg', text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.', soc: ['fb', 'tw', 'mail']}];
-                    each item in team
-                        .teamList__item
-                            .teamList__img(style="background-image: url('img/"+item.photo+"')")
-                            .teamList__name= item.name
-                            .teamList__prof= item.prof
-                            .teamList__text= item.text
-                            .teamList__soc
-                                each soc in item.soc
-                                    if soc == 'fb'
-                                        a.icon-fb(href="#")
-                                    if soc == 'tw'
-                                        a.icon-twitter(href="#")
-                                    if soc == 'in'
-                                        a.icon-in(href="#")
-                                    if soc == 'mail'
-                                        a.icon-mail(href="#")
-
-        // end team
-
-        // begin skills
-        section#skills.skills.section
-            .container_center
-                h2.section__title WE GOT SKILLS!
-                .section__subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                .skillsList
-                    -var skills = [{percent: '90', name: 'Web Design'}, {percent: '75', name: 'HTML / CSS'}, {percent: '70', name: 'GRAPHIC DESIGN'}, {percent: '85', name: 'UI / UX'}];
-                    each skill in skills
-                        .skillsList__item
-                            .skillsList__donut
-                                .skillsList__count= skill.percent
-                            .skillsList__name= skill.name
-
-        // end skills
-
-        // begin work
-        section#work.work.section
-            .container_center
-                h2.section__title OUR PORTFOLIO
-                .section__subtitle Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam
-
-                .workList
-                    -var works = ['Isometric Perspective Mock-Up', 'Time Zone App UI', 'Viro Media Players UI', 'Blog / Magazine Flat UI Kit'];
-                    each item, index in works
-                        .workList__item
-                            .workList__img
-                                img(src="img/work"+index+".png", alt="alt")
-                            .workList__name= item
-
-                .workList__more
-                    button.btn.btn_danger(type="button") LOAD MORE PROJECTS
-
-        // end work
-
-        // begin about
-        section#about.about.section.section_contrast
-            .container_center
-                h2.section__title WHAT PEOPLE SAY ABOUT US
-                .section__subtitle Our clients love us!
-
-                .aboutList
-                    -var about = [{text: 'Nullam dapibus blandit orci, viverra gravida dui lobortis eget. Maecenas fringilla urna eu nisl scelerisque.', name: 'Chanel Iman', prof: 'CEO of Pinterest', img: 'chanel-iman-lead.jpg'}, {text: 'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.', name: 'ADRIANA LIMA', prof: 'Founder of Instagram', img: 'adriana-lima-1.jpg'}, {text: 'Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.', name: 'angelina jolie', prof: 'Lead Designer at Behance', img: 'jolie2.jpg'}, {text: 'Phasellus non purus vel arcu tempor commodo. Fusce semper, purus vel luctus molestie, risus sem cursus neque.', name: 'EMMA STONE', prof: 'Co-Founder of Shazam', img: 'Emma-Stone-Accutaine-Skin-Story.jl.072116.jpg'}];
-                    each item in about
-                        .aboutList__item
-                            .aboutList__img(style="background-image: url('img/"+item.img+"')")
-                            .aboutList__descr
-                                .aboutList__text= item.text
-                                .aboutList__name= item.name
-                                .aboutList__prof= item.prof
-
-        // end about
-
-        // begin contact
-        section#contact.contact.section.section_contrast
-            .container_center
-                h2.section__title GET IN TOUCH
-                .section__subtitle 1600 Pennsylvania Ave NW, Washington, DC 20500, United States of America. Tel: (202) 456-1111
-                form.form(action="#" method="post")
-                    .form__row.form__row_double
-                        .form__control
-                            input(type="text", placeholder="Your Name *")
-                        .form__control
-                            input(type="text", placeholder="Your Email *")
-                    .form__row
-                        .form__control
-                            textarea(placeholder="Your Message *")
-                    .form__action
-                        button.btn.btn_primary(type="submit") SEND MESSAGE
-
-        // end contact
-
-    footer.footer
-        .container_center
-            .soc
-                a.soc__link(href="#") Facebook
-                a.soc__link(href="#") Twitter
-                a.soc__link(href="#") Google+
-                a.soc__link(href="#") LinkedIn
-                a.soc__link(href="#") Behance
-                a.soc__link(href="#") Dribbble
-                a.soc__link(href="#") GitHub       
+                .soc
+                    a.soc__link(href="#") Facebook
+                    a.soc__link(href="#") Twitter
+                    a.soc__link(href="#") Google+
+                    a.soc__link(href="#") LinkedIn
+                    a.soc__link(href="#") Behance
+                    a.soc__link(href="#") Dribbble
+                    a.soc__link(href="#") GitHub       
